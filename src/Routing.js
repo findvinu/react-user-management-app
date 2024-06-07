@@ -7,9 +7,12 @@ const Routing = () => {
   return (
     <Routes>
       <Route path="/" element={<UserList />} />
-      <Route path="/user-list" element={<UserList />} />
-      <Route path="/add-user" element={<AddUser />} />
-      <Route path="/update-user/:id" element={<UpdateUser />} />
+      <Route path="/redux-toolkit-user-app/user-list" element={<UserList />} />
+      <Route path="/redux-toolkit-user-app/add-user" element={<AddUser />} />
+      <Route
+        path="/redux-toolkit-user-app/update-user/:id"
+        element={<UpdateUser />}
+      />
     </Routes>
   );
 };
