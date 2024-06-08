@@ -15,14 +15,12 @@ export const fetchUsers = createAsyncThunk(
         method: method.toLowerCase(),
         url,
       });
-      console.log('response.data', response.data)
-     return response.data;
+      return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }
   }
 );
-
 
 const userSlice = createSlice({
   name: "users",
@@ -31,23 +29,20 @@ const userSlice = createSlice({
     getUsers(state, action) {
       state.users = action.payload;
     },
-    addUser(state, action){
+    addUser(state, action) {
       state.users.push(action.payload);
     },
-    updateUser(state, action){
-      const {id, updateUser} = action.payload;
-      const index = state.users.findIndex(user => user.id === id);
-      if(index !== -1){
-        state.users[index] = {...state.users[index], ...updateUser}
+    updateUser(state, action) {
+      const { id, updateUser } = action.payload;
+      const index = state.users.findIndex((user) => user.id === id);
+      if (index !== -1) {
+        state.users[index] = { ...state.users[index], ...updateUser };
       }
-
-      console.log('slice', index, updateUser);
-      console.log('Updated state:', state.users);
     },
-    deleteUser(state, action){
-      const id = action.payload
-      state.users = state.users.filter(item => item.id !== id);
-    }
+    deleteUser(state, action) {
+      const id = action.payload;
+      state.users = state.users.filter((item) => item.id !== id);
+    },
   },
 
   extraReducers: (builder) => {
@@ -58,7 +53,7 @@ const userSlice = createSlice({
       })
       .addCase(fetchUsers.fulfilled, (state, action) => {
         state.loading = false;
-        state.users = action.payload
+        state.users = action.payload;
       })
       .addCase(fetchUsers.rejected, (state, action) => {
         state.loading = false;

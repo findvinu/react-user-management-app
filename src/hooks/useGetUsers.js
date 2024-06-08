@@ -14,8 +14,7 @@ const useGetUsers = (url, method) => {
             method: method.toLowerCase(),
             url
         })
-        setUsers(response.data)
-        console.log('response.data', response.data)
+        setUsers(response.data);
         }catch(error){
             setError(error)
         }finally{

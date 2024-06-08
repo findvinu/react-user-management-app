@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import Input from "../components/Input";
 import Button from "../components/Button";
 import { updateUser } from "../store/slices/userSlice";
@@ -8,9 +8,9 @@ import { updateUser } from "../store/slices/userSlice";
 const UpdateUser = () => {
   const dispatch = useDispatch();
   const users = useSelector((state) => state.users.users);
-  const  {userId}  = useParams();
+  const { state } = useLocation();
+  const navigate = useNavigate();
 
-console.log('users', users)
   const [selectedUser, setSelectedUser] = useState({
     name: "",
     username: "",
@@ -24,15 +24,18 @@ console.log('users', users)
   });
 
   useEffect(() => {
-    const user = users.find((user) => user.id.toString() === userId);
-    if (user) {
-      setSelectedUser(user);
+    if (state && state.user) {
+      const user = state.user;
+      setSelectedUser({
+        ...user,
+      });
     }
-  }, [users, userId]);
+  }, [state]);
 
   const userSubmitHandler = (event) => {
     event.preventDefault();
     dispatch(updateUser({ id: selectedUser.id, updateUser: selectedUser }));
+    navigate("/redux-toolkit-user-app/user-list");
   };
 
   const userChangeHandler = (event) => {
@@ -51,7 +54,7 @@ console.log('users', users)
           name="name"
           id="name"
           label="Name"
-          value={users.name}
+          value={selectedUser?.name}
           onChange={userChangeHandler}
         />
         <Input

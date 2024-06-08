@@ -3,12 +3,12 @@ import Input from "../components/Input";
 import Button from "../components/Button";
 import { addUser } from "../store/slices/userSlice";
 import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 const AddUser = () => {
   const dispatch = useDispatch();
-  const { users, loading, error } = useSelector((state) => state.users);
-
-  console.log('add user component', users)
+  const navigate = useNavigate();
+  const users = useSelector((state) => state.users.users);
 
   const [userData, setUserData] = useState({
     name: "",
@@ -24,9 +24,10 @@ const AddUser = () => {
 
   const userSubmitHandler = (event) => {
     event.preventDefault();
-     
-    const newUser = {...userData, id: new Date().getTime()};
-    dispatch(addUser(newUser))
+
+    const newUser = { ...userData, ...users, id: new Date().getTime() };
+    console.log("newUser", newUser);
+    dispatch(addUser(newUser));
     setUserData({
       name: "",
       username: "",
@@ -39,11 +40,11 @@ const AddUser = () => {
       longitude: "",
     });
 
-    return newUser
+    navigate("/redux-toolkit-user-app/user-list");
   };
 
   const userChangeHandler = (event) => {
-    const {name, value} = event.target;
+    const { name, value } = event.target;
     setUserData((prevState) => ({
       ...prevState,
       [name]: value,
