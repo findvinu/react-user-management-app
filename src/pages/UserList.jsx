@@ -30,7 +30,7 @@ const UserList = () => {
   }
 
   const userUpdateHandler = (userId) => {
-    navigate(`/update-user/${userId}`)
+    navigate(`/redux-toolkit-user-app/update-user/${userId}`);
   }
   return (
     <ul className="listContainer">
