@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/redux-toolkit-user-app/static/css/main.8a0e5889.css",
-    "main.js": "/redux-toolkit-user-app/static/js/main.31d232c9.js",
-    "static/media/vinuBytes.png": "/redux-toolkit-user-app/static/media/vinuBytes.c4c87fab3802519e572e.png",
-    "index.html": "/redux-toolkit-user-app/index.html",
-    "main.8a0e5889.css.map": "/redux-toolkit-user-app/static/css/main.8a0e5889.css.map",
-    "main.31d232c9.js.map": "/redux-toolkit-user-app/static/js/main.31d232c9.js.map"
+    "main.css": "/react-user-management-app/static/css/main.8a0e5889.css",
+    "main.js": "/react-user-management-app/static/js/main.73ecb403.js",
+    "static/media/vinuBytes.png": "/react-user-management-app/static/media/vinuBytes.c4c87fab3802519e572e.png",
+    "index.html": "/react-user-management-app/index.html",
+    "main.8a0e5889.css.map": "/react-user-management-app/static/css/main.8a0e5889.css.map",
+    "main.73ecb403.js.map": "/react-user-management-app/static/js/main.73ecb403.js.map"
   },
   "entrypoints": [
     "static/css/main.8a0e5889.css",
-    "static/js/main.31d232c9.js"
+    "static/js/main.73ecb403.js"
   ]
 }
