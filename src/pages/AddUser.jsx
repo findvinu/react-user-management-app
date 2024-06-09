@@ -40,7 +40,7 @@ const AddUser = () => {
       longitude: "",
     });
 
-    navigate("/redux-toolkit-user-app/user-list");
+    navigate("/user-list");
   };
 
   const userChangeHandler = (event) => {

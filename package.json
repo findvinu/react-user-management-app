@@ -1,6 +1,6 @@
 {
-  "homepage": "http://findvinu.github.io/redux-toolkit-user-app/",
-  "name": "redux-toolkit-user-app",
+  "homepage": "http://findvinu.github.io/react-user-management-app/",
+  "name": "react-user-management-app",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

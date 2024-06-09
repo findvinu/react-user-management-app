@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { useLocation, useNavigate } from "react-router-dom";
 import Input from "../components/Input";
 import Button from "../components/Button";
@@ -7,7 +7,6 @@ import { updateUser } from "../store/slices/userSlice";
 
 const UpdateUser = () => {
   const dispatch = useDispatch();
-  const users = useSelector((state) => state.users.users);
   const { state } = useLocation();
   const navigate = useNavigate();
 
@@ -35,7 +34,7 @@ const UpdateUser = () => {
   const userSubmitHandler = (event) => {
     event.preventDefault();
     dispatch(updateUser({ id: selectedUser.id, updateUser: selectedUser }));
-    navigate("/redux-toolkit-user-app/user-list");
+    navigate("/user-list");
   };
 
   const userChangeHandler = (event) => {

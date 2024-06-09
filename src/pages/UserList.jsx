@@ -29,7 +29,7 @@ const UserList = () => {
   };
 
   const userUpdateHandler = (user) => {
-    navigate(`/redux-toolkit-user-app/update-user/${user.id}`, {
+    navigate(`/update-user/${user.id}`, {
       state: { user },
     });
   };
