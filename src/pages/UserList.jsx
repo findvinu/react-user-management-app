@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { getUser } from "../api";
-import { fetchUsers, deleteUser, updateUser } from "../store/slices/userSlice";
+import { fetchUsers, deleteUser } from "../store/slices/userSlice";
 import { useNavigate } from "react-router-dom";
 import UserCard from "../components/UserCard";
 
